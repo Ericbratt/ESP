@@ -1,8 +1,9 @@
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
+1. Via TaskGetCurrentTaskHandle() 
+2. Dit is niet mogelijk
+3. Core 1
+4. setup() en loop()
+5. vTaskSuspend()
+6. Ja dit kan dit doe je om de functie :vTaskDelete() te gebruiken
+7. later during the IDLE task
+8. De scheduler runt een task totdat de preemption timer afgaat
+9. elke 1ms
