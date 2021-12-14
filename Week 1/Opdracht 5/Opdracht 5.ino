@@ -54,7 +54,21 @@ void setup() {
   }
   putchar('\n');
 }
-
 void loop() {
-  delay(1000);
+for (int ctr = 0; ctr < 10; ctr++)
+  {
+    delay(1000);
+    if (ctr == 9 )
+    {
+      for ( auto& led : leds)
+      {
+        vTaskSuspend( led.taskh );
+      }
+      delay(3000);
+      for ( auto& led : leds)
+      {
+        vTaskResume( led.taskh );
+      } 
+    }
+  }
 }
