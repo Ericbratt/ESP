@@ -27,7 +27,6 @@ if ( xQueueSendToBack(queue,&event,0) == pdPASS ) {
 last = event;
 } else if ( event < 0 ) {
 do {
-xQueueReset(queue); // Empty queue
 } while ( xQueueSendToBack(queue,&reset_press,0) != pdPASS );
 last = event;
 }
@@ -96,7 +95,7 @@ static int left = GPIO_BUTTONL;
 static int right = GPIO_BUTTONR;
 TaskHandle_t h;
 BaseType_t rc;
-xqueue = xQueueCreate( 5, 64 * sizeof( char ) );
+xqueue = xQueueCreate( 10, 64 * sizeof( char ) );
 delay(2000); // Allow USB to connect
 queue = xQueueCreate(2,sizeof(int));
 assert(queue);
